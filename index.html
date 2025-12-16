@@ -1,0 +1,1347 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/ASSESTS/CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Hello, world!</title>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .fa-facebook-f:hover {
+      color: blue;
+    }
+
+    .fa-twitter:hover {
+      color: powderblue;
+    }
+
+    .fa-youtube:hover {
+      color: red;
+    }
+
+    .fa-instagram:hover {
+      color: purple;
+    }
+
+    .fa-pinterest-p:hover {
+      color: red;
+    }
+
+    .fa-linkedin-in:hover {
+      color: cadetblue;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, rgb(15, 29, 43), #11234b);
+      color: black;
+      overflow-x: hidden;
+    }
+
+    .luxury-header {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: #ffd700;
+    }
+
+    .form-control {
+      background-color: transparent;
+      border: 1px solid #ffd700;
+      color: #fff;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control::placeholder {
+      color: #ccc;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      border-color: #ffd700;
+    }
+
+
+    /* Card hover glow and elevation */
+    .card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin: 10px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Card title and text spacing */
+    .card-body h5 {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .card-body p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    /* Buttons glow on hover */
+    .btn-primary {
+      background-color: #11234b;
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #ffd700;
+      color: #11234b;
+      box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
+      transform: translateY(-3px);
+    }
+
+    /* Input field glow */
+    .form-control {
+      border: 1px solid #ffd700;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 10px #ffd700, 0 0 20px rgba(255, 215, 0, 0.5);
+      border-color: #ffd700;
+    }
+
+    /* Footer spacing */
+    footer {
+      padding: 50px 20px;
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    footer h2 {
+      margin-bottom: 15px;
+    }
+
+    /* Smooth spacing for sections */
+    .row {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    /* Carousel spacing */
+    .carousel-inner img {
+      border-radius: 15px;
+    }
+
+    /* Media query refinement example */
+    @media (max-width: 768px) {
+      .card {
+        width: 90% !important;
+        margin: auto;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+      }
+    }
+
+    /* Glowing modal */
+    .modal-content {
+      background-color: #0b0f2b;
+      /* deep navy */
+      border: 2px solid #ffd700;
+      /* golden border */
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 60px #ffd700;
+      transition: all 0.3s ease-in-out;
+      color: #fff;
+      /* modal text color */
+    }
+
+    /* Hover effect for modal */
+    .modal-content:hover {
+      box-shadow: 0 0 30px #ffd700, 0 0 60px #ffd700, 0 0 90px #ffd700, 0 0 120px #ffea00;
+      transform: translateY(-5px);
+      /* slight lift on hover */
+    }
+
+    /* Modal header, body, footer optional glow */
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      border: none;
+      /* remove default borders */
+      text-align: center;
+    }
+
+    /* Glowing close button */
+    .modal-header .btn-close {
+      filter: drop-shadow(0 0 5px #ffd700);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .modal-header .btn-close:hover {
+      filter: drop-shadow(0 0 15px #ffd700);
+    }
+
+    /* ============================
+   SMALL DEVICES (MAX 576px)
+   ============================ */
+    @media (max-width: 576px) {
+
+      /* Cards full width */
+      .card {
+        width: 95% !important;
+        margin: auto;
+      }
+
+      .card-body h5 {
+        font-size: 16px;
+      }
+
+      /* Carousel */
+      .carousel-inner img {
+        height: 220px;
+        object-fit: cover;
+      }
+
+      /* Modal responsive */
+      .modal-dialog {
+        max-width: 96% !important;
+        margin: 20px auto;
+      }
+
+      .modal-body img {
+        height: auto;
+        max-height: 320px;
+        object-fit: cover;
+      }
+
+      /* Headings */
+      h1,
+      h3 {
+        font-size: 22px;
+      }
+
+
+    }
+
+    /* ============================
+   MEDIUM DEVICES (MAX 768px)
+   ============================ */
+    @media (max-width: 768px) {
+
+
+      /* Cards resizing */
+      .card {
+        width: 80% !important;
+        margin: auto;
+      }
+
+      .carousel-inner img {
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .modal-dialog {
+        max-width: 90% !important;
+      }
+    }
+
+    /* ============================
+   LARGE DEVICES (MAX 992px)
+   ============================ */
+    @media (max-width: 992px) {
+
+
+      .card {
+        width: 70% !important;
+        margin: auto;
+      }
+
+      .carousel-inner img {
+        height: 350px;
+        object-fit: cover;
+      }
+    }
+
+    /* ============================
+   EXTRA LARGE DEVICES (1200px+)
+   ============================ */
+    @media (min-width: 1200px) {
+      .card {
+        width: 18rem !important;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      transition: transform .4s ease;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <strong><strong><strong>
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary sticky-top fst-italic fs-4 luxury-header">
+          <div class="container-fluid">
+            <a class="navbar-brand fst-italic" href="#">
+              <h1><strong><strong>𝐙𝐚𝐲𝐧𝐚é</strong></strong></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <center>
+
+              <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Menu
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#women">Women Section</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#kid">Kid's Section</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#men">Men Section</a></li>
+                    </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contactUs.html">Contact Us</a>
+                  </li>
+
+
+                </ul>
+            </center>
+            <form class="d-flex">
+              <input class="form-control me-2 border-dark fst-italic fs-3" type="search" placeholder="Search"
+                aria-label="Search">
+              <button class="btn btn-outline-success text-light bg-dark fst-italic fs-4 " type="submit">
+                <strong><strong>Search</strong></strong></button>
+            </form>
+          </div>
+          </div>
+        </nav>
+      </strong></strong></strong>
+
+
+  <div class="alert alert-success alert-dismissible fade show fst-italic fs-4" role="alert">
+    <marquee behavior="" direction=""><strong>Hey Buddy!</strong> You should check our <strong> Exclusive Deals</strong>
+      here
+      <code>Click on this provided Link</code>.
+    </marquee>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+
+  <h3 class="bg-dark text-center text-light"><strong>𝐙𝐚𝐲𝐧𝐚é</strong> - 𝓹𝓮𝓻𝓯𝓮𝓬𝓽 𝓬𝓱𝓸𝓲𝓬𝓮 ✨</h3>
+
+
+  <!-- Carousel -->
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+        aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/ASSESTS/IMAGES/carouselgirla.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/ASSESTS/IMAGES/carouselboya.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/ASSESTS/IMAGES/carouselgirlb.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/ASSESTS/IMAGES/carouselboyb.webp" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Nav & Tabs -->
+  <nav>
+    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+      <button class="nav-link active fst-italic" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+        role="tab" aria-controls="nav-home" aria-selected="true">FRAGRANCE</button>
+      <button class="nav-link fst-italic" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+        role="tab" aria-controls="nav-profile" aria-selected="false">COSMETICS</button>
+      <button class="nav-link fst-italic" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+        role="tab" aria-controls="nav-contact" aria-selected="false">SKIN CARE</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <h1 class="text-info text-center fst-italic"><strong><strong>Fragrance Collection</strong></strong></h1>
+      <div id="fragrance" class="row justify-content-center g-4">
+
+        <div data-aos="zoom-in-right" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/womanperfumea.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">FANTASY</h5>
+            <p class="card-text">PKR 7,400.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal10">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">FANTASY</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalwomenperfumea.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>Category: Floral, Fruity <br>
+
+                  <strong>Main Accords:</strong> <br>
+                  Top Notes: Grapefruit, Raspberry, Orange Flower <br>
+                  Heart Notes: Orris, Praline, Jasmine <br>
+                  Base Notes: Vetiver, Patchouli, Vanilla <br>
+
+                  Size: 100ml Bottle
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div data-aos="zoom-in-down" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/menperfumea.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">SHER DIL</h5>
+            <p class="card-text">PKR 11,800.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal11">
+              More Details
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SHER DIL</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalmenperfumea.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  Category: Citrus, Woody, Amber <br>
+
+                  <strong>Main Accords: </strong> <br>
+                  Top Notes: Bergamot, Orange, Mandarine, Lemon, Green Apple <br>
+                  Heart Notes: Black Currant, Rose, Jasmine, Freesia, Lily of the Valley, Wallflower, Pepper <br>
+                  Base Notes: Cedarwood, Patchouli, Oakmoss, Amber, Leather, Musk <br>
+
+                  Size: 100ml Bottle
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in-left" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/womenperfumeb.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">BLOOM </h5>
+            <p class="card-text">PKR 1,900.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal12">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">BLOOM </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalwomenperfumeb.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  Category: Fresh Floral Musky <br>
+
+                  <strong>Main Accords:</strong> <br> Citrus, Peony, Rose, Floral, Fresh, Fruity, Musk <br>
+
+                  Size: 30ml Bottle
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <h1 class="text-secondary text-center fst-italic"><strong><strong>Cosmetics Collection</strong></strong></h1>
+      <div id="cosmetic" class="row justify-content-center g-4">
+
+        <div data-aos="zoom-in-right" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/makeuppowdera.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">LUMINOUS SILK CREAM POWDER</h5>
+            <p class="card-text">PKR 2,500.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal13">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">LUMINOUS SILK CREAM POWDER</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalmakeuppowdera.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  <strong>Cedar Wood Oil </strong>
+
+                  If you find traditional powders too dry on the skin, reach for the <strong>Luminous Silk Cream
+                    Powder</strong> to deliver high coverage and hydration without drying out the skin. Enriched with
+                  cedarwood oil, the formula helps to control sebum and reduce oil production. Touch up whenever you
+                  need to
+                  with the handy compact complete with mirror and applicator. <br>
+
+                  It looks like a cream but sets like very soft powder. You need to work reasonably quickly when
+                  applying
+                  this cream powder because it sets pretty quickly. It's easy to blend and very comfortable on the skin
+                  - a
+                  good alternative for people that don't like powder foundations but want the convenience of an all in
+                  one
+                  compact.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div data-aos="zoom-in-down" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/makeuplipstickb.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">MATTEMOIST LIPSTICK SHADE BURGANDDI</h5>
+            <p class="card-text">PKR 2,100.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal14">
+              More Details
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">MATTEMOIST LIPSTICK</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalmakeuplipstickb.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  <strong>Macadamia Oil / Vitamin E </strong>
+
+                  The <strong>Mattemoist Lipstick</strong> delivers intense color without compromising on lip care. A
+                  velvety formula of macadamia oil and vitamin E protects and soothes lips with each application,
+                  keeping
+                  the no-shine finish flawless. <br>
+
+                  Soft, ultra-creamy matte texture with uniform full coverage.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in-left" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/makeupeyeshadowc.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">LOVE AT FIRST SIGHT EYESHADOW PALETTE</h5>
+            <p class="card-text">PKR 3,500.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal15">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">LOVE AT FIRST SIGHT EYESHADOW PALETTE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalmakeupeyeshadowc.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  An explosion of color that lasts a very long time thanks to strong adherence of the pigments and
+                  pearls.
+                  <br>
+
+                  Note Love At First Sight eyeshadow delivers an explosion of color that lasts a very long time thanks
+                  to
+                  the strong adherence of pigments and pearls. This 12 pan color palette contains three different
+                  finishes:
+                  Matte, Satin, and Metal to dress up your mood. Rich in pigments to deliver high color pay off. Comes
+                  in
+                  three different multicolor palettes. The best mix of pearly, matte, and metallic eyeshadow textures to
+                  dress your mood.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+
+      <h1 class="text-primary text-center fst-italic"><strong><strong>SkinCare Collection</strong></strong></h1>
+      <div id="skincare" class="row justify-content-center g-4">
+
+        <div data-aos="zoom-in-right" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/skincarea.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">INTENSE CARE HAND CREAM</h5>
+            <p class="card-text">PKR 1,700.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal16">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal16" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">INTENSE CARE HAND CREAM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalskincarea.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  For general skincare only. Not for treating skin conditions. Patch test recommended. Consult a
+                  dermatologist for concerns. Discontinue if irritation occurs.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div data-aos="zoom-in-down" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/skincareb.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">LA PROTECTION SUN PROTECTION CREAM</h5>
+            <p class="card-text">PKR 4,500.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal17">
+              More Details
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal17" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">LA PROTECTION SUN PROTECTION CREAM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalskincareb.webp" alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  For general skincare only. Not for treating skin conditions. Patch test recommended. Consult a
+                  dermatologist for concerns. Discontinue if irritation occurs.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in-left" class="card" style="width: 18rem;">
+          <img src="/ASSESTS/IMAGES/skincarec.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">LA SEDUCTION ANTI AGING SERUM</h5>
+            <p class="card-text">PKR 3,500.00.</p>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal18">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal18" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">LA SEDUCTION ANTI AGING SERUM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/ASSESTS/IMAGES/modalskincarec.webp " alt="" width="100%">
+                <h1>DESCRIPTION:</h1>
+                <p>
+                  For general skincare only. Not for treating skin conditions. Patch test recommended. Consult a
+                  dermatologist for concerns. Discontinue if irritation occurs.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+                <button type="button" class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Cards -->
+
+  <h1 class="text-success text-center fst-italic"><strong><strong>Women Collection</strong></strong></h1>
+  <div id="women" class="row justify-content-center g-4">
+
+    <div data-aos="zoom-in-right" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/womenbluea.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">BLUE DOBBY EMBROIDERED KURTI</h5>
+        <p class="card-text">PKR 4,690.00.</p>
+        <button type="button" class="btn btn-primary w-100 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">BLUE DOBBY EMBROIDERED KURTI</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalwomenbluea.webp" alt="" width="100%">
+            <h1><strong>DESCRIPTION:</strong></h1>
+            <p>Collection: Embroidered Dobby Shirt <br>
+              Wear Type: Classic Fit <br>
+              Fabric Type: Dyed Dobby <br>
+              Neckline: V- Neck <br>
+              Shirt Front: Dyed Embroidered <br>
+              Shirt Back: Dyed Dobby Back <br>
+              Sleeves: Embroidered Full Sleeves <br>
+              Style Cut: Classic Kameez <br>
+              Length: Long <br>
+              Embellishment: Buttons On Neckline</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div data-aos="zoom-in-down" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/womenlavendarb.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">MULTICOLOR CHIFFON EMBROIDERED </h5>
+        <p class="card-text">PKR 10,990.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">MULTICOLOR CHIFFON EMBROIDERED </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalwomenlavendarb.webp" alt="" width="100%">
+            <h1><strong>DESCRIPTION:</strong></h1>
+            <p>
+              Size: 3 Piece <br>
+              Color: Multicolor <br>
+              Fabric: Chiffon <br>
+              Styling: Embroidered <br>
+              Product: Category Unstitched 3 Piece <br>
+              Season: Festive Collection <br>
+              Disclaimer: Due to the photographic lighting & different screen calibrations, the colors of the original
+              product may slightly vary from the picture</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div data-aos="zoom-in-left" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/womenwhitec.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">WHITE DYED SCHIFFLI 2PC STITCHED</h5>
+        <p class="card-text">PKR 9,690.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">WHITE DYED SCHIFFLI 2PC STITCHED</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalwomenwhitec.webp" alt="" width="100%">
+            <h1><strong>DESCRIPTION:</strong></h1>
+            <p>Collection: Schiffli Dyed Lawn Shirt - Dyed Bamber Chiffon Dupatta <br>
+              Wear Type: Classic Fit <br>
+              Fabric Type: Schiffli Dyed Lawn Shirt - Basic Dyed Bamber Chiffon Dupatta <br>
+              Neckline: Side Keyhole <br>
+              Shirt Front: Schiffli Dyed Front <br>
+              Shirt Back: Dyed Back <br>
+              Sleeves: Schiffli Sleeves <br>
+              Style Cut: Straight Cut Classic Kurta <br>
+              Length: Short <br>
+              Embellishment: Laces</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <h1 class="text-warning text-center fst-italic"><strong><strong>Kid's Collection</strong></strong></h1>
+  <div id="kid" class="row justify-content-center g-4">
+
+    <div data-aos="zoom-in-right" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/kidgirlorangea.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">ORANGE LAWN EMBROIDERED 3PC STITCHED</h5>
+        <p class="card-text">PKR 5,190.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+          More Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ORANGE LAWN EMBROIDERED 3PC STITCHED</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalkidgirlorangea.webp" alt="" width="100%">
+            <h1>DESCRIPTION:</h1>
+            <p>Collection: Embroidered Lawn Shirt - Digital Printed Trouser - Dip Dye Net Dupatta <br>
+              Fabric Type: Dyed Lawn <br>
+              Neckline: Round Neck With Slit <br>
+              Shirt Front: Embroidered<br>
+              Shirt Back: Plain Dyed<br>
+              Trouser: Printed Lawn Dhaka Pajama<br>
+              Sleeves: Three-Quarter<br>
+              Style Cut: Straight Shirt<br>
+              Length: Medium (25”)<br>
+              Embellishment: Handmade Threaded Tassel</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="zoom-in-down" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/kidboycamelbrowna.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">CAMEL BROWN BLENDED KAMEEZ SHALWAR</h5>
+        <p class="card-text">PKR 4,290.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">CAMEL BROWN BLENDED KAMEEZ SHALWAR</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalkidboycamelbrowna.webp" alt="" width="100%">
+            <h1>DESCRIPTION:</h1>
+            <p>Color CAMEL BROWN <br>
+              Product Category: Boys Kameez Shalwar<br>
+              Season: Festive Collection<br>
+              Fabric: Blended<br>
+              Disclaimer: Due to the photographic lighting & different screen calibrations, the colors of the original
+              product may slightly vary from the picture</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="zoom-in-left" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/kidgirlgreyb.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">GREY DOBBY EMBROIDERED 3PC STITCHED</h5>
+        <p class="card-text">PKR 5,490.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">GREY DOBBY EMBROIDERED 3PC STITCHED</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalkidgirlgreyb.webp" alt="" width="100%">
+            <h1>DESCRIPTION:</h1>
+            <P>Collection: Embroidered Dobby Shirt-Lawn Trouser-Net Dupatta <br>
+              Wear Type: Casual<br>
+              Fabric Type: Dobby<br>
+              Neckline: Magzi <br>
+              Shirt Front: Embroidered<br>
+              Trouser: Gharara <br>
+              Sleeves: Embroidered<br>
+              Style Cut: Straight<br>
+              Length: Medium<br>
+              Embellishment: Buttoning</P>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <h1 class="text-danger text-center fst-italic"><strong><strong>Men Collection</strong></strong></h1>
+  <div id="men" class="row justify-content-center g-4">
+
+    <div data-aos="zoom-in-right" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/mendenimblacka.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">DENIM BLACK COTTON CASUAL SHORT KURTA</h5>
+        <p class="card-text">PKR 4,990.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">DENIM BLACK COTTON CASUAL SHORT KURTA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalmenblackdenima.webp" alt="" width="100%">
+            <h1>DESCRIPTION:</h1>
+            <p>
+              Color Denim Black <br>
+              Fabric: Cotton<br>
+              Product Category: Casual Kurta<br>
+              Season: Festive Collection<br>
+              Disclaimer: Due to the photographic lighting & different screen calibrations, the colors of the original
+              product may slightly vary from the picture</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div data-aos="zoom-in-down" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/mengreyb.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">GREY COTTON CASUAL BURNET KURTA</h5>
+        <p class="card-text">PKR 6,990.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+          More Details
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">GREY COTTON CASUAL BURNET KURTA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modalmengreyb.webp" alt="" width="100%">
+            <h1>DESCRIPTION:</h1>
+            <p>
+              Color: Grey <br>
+              Fabric: Cotton<br>
+              Fit Type: Regular Fit<br>
+              Product Category: Casual Kurta<br>
+              Disclaimer: Due to the photographic lighting & different screen calibrations, the colors of the original
+              product may slightly vary from the picture</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="zoom-in-left" class="card" style="width: 18rem;">
+      <img src="/ASSESTS/IMAGES/menbluec.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">BLUE COTTON BUNNAT CASUAL KURTA</h5>
+        <p class="card-text">PKR 5,990.00.</p>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+          More Details
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">BLUE COTTON BUNNAT CASUAL KURTA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/ASSESTS/IMAGES/modelmenbluec.webp" alt="" width="100%">
+            <h1>DESCRIPTION:</h1>
+            <p>
+              Color: Blue<br>
+              Fabric: Cotton <br>
+              Fit Type: Regular Fit
+              Product Category: Casual Kurta<br>
+              Season: All Seasons<br>
+              Disclaimer: Due to the photographic lighting & different screen calibrations, the colors of the original
+              product may slightly vary from the picture</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Add To Cart</button>
+            <button type="button" class="btn btn-primary w-100">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <br>
+  <br>
+
+  <!-- Footer -->
+
+  <footer class="d-flex justify-content-between bg-dark text-light">
+
+
+    <div>
+      <h2 class="text-danger">Need Help?</h2>
+      <p>
+        📞+922 137 170 445</p>
+      <p>(Mon - Sat: 9:30am - 10:00pm | Sun: 11am - 8pm)</p>
+      <p>
+        📩eshop@junaidjamshed.com</p>
+    </div>
+
+
+    <div>
+      <h2 class="text-primary">Customer Service</h2>
+      <p>Contact Us</p>
+      <p>Delivery & Orders</p>
+      <p>Returns & Exchanges</p>
+      <p>Terms & Conditions</p>
+      <p>Privacy Policy</p>
+      <p>Track My Order</p>
+      <p>Payment Guide</p>
+      <p>Fabric Glossary</p>
+    </div>
+
+
+    <div>
+      <h2 class="text-warning">Company</h2>
+      <p>About Us</p>
+      <p>Careers</p>
+      <p>Store Addresses</p>
+      <p>Corporate</p>
+    </div>
+
+
+    <div style=" font-size: 35px;">
+      <h2 class="text-success">Follow Us</h2>
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-youtube"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-pinterest-p"></i>
+      <i class="fa-brands fa-linkedin-in"></i>
+    </div>
+
+
+
+  </footer>
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="/ASSESTS/JAVA SCRIPT/bootstrap.bundle.js"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
